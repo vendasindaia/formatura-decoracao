@@ -119,8 +119,10 @@ a{color:inherit;}
 .ghost__word{font-family:var(--serif);font-weight:600;text-transform:uppercase;line-height:1;text-align:center;font-size:clamp(2.4rem,9vw,8rem);letter-spacing:.01em;white-space:nowrap;color:color-mix(in oklab,var(--ink-soft) 34%,var(--paper));}
 @keyframes ghostFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 @media(max-width:820px){.statement__grid{grid-template-columns:1fr;gap:clamp(2.4rem,7vw,3.4rem);}.statement__text{max-width:26ch;}.ghost__word{font-size:clamp(3rem,17vw,6.5rem);}.ghost__capelo{width:clamp(52px,13vw,88px);}}
-@supports((-webkit-background-clip:text) or (background-clip:text)){.ghost__word{background-image:linear-gradient(to top,color-mix(in oklab,var(--ink-soft) 55%,var(--accent)) 0%,color-mix(in oklab,var(--ink-soft) 48%,var(--paper)) 28%,color-mix(in oklab,var(--ink-mute) 30%,var(--paper)) 64%,color-mix(in oklab,var(--paper-2) 40%,var(--paper)) 100%);background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}}
-@media(prefers-reduced-motion:reduce){.ghost__stack{animation:none;}}
+@supports((-webkit-background-clip:text) or (background-clip:text)){.ghost__word{background-image:linear-gradient(100deg,transparent 36%,rgba(255,255,255,.95) 47%,rgba(233,218,255,.92) 53%,transparent 64%),linear-gradient(to top,color-mix(in oklab,var(--ink-soft) 55%,var(--accent)) 0%,color-mix(in oklab,var(--ink-soft) 48%,var(--paper)) 28%,color-mix(in oklab,var(--ink-mute) 30%,var(--paper)) 64%,color-mix(in oklab,var(--paper-2) 40%,var(--paper)) 100%);background-size:250% 100%,100% 100%;background-position:175% 0,0 0;background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:ghostShine 6.5s ease-in-out infinite;}}
+/* brilho metálico atravessa a FORMEI — 1 elemento, repinta só durante a passada (~2s), idle o resto */
+@keyframes ghostShine{0%{background-position:175% 0,0 0}42%,100%{background-position:-75% 0,0 0}}
+@media(prefers-reduced-motion:reduce){.ghost__stack,.ghost__word{animation:none;}}
 
 /* SEÇÃO / PACOTE */
 .sec{padding:clamp(4rem,10vh,8rem) 0;}
@@ -143,10 +145,10 @@ a{color:inherit;}
 .frame.in .frame__img{transform:scale(1);}
 .frame__cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.6rem .9rem .55rem;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent);}
 .pacote__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(1.6rem,4vw,3rem);align-items:start;}
-@media(max-width:820px){.mosaico{grid-template-columns:1fr 1fr;}.pacote__grid{grid-template-columns:1fr;}}
-.itens{list-style:none;}
-.itens li{display:grid;grid-template-columns:1.4rem 1fr;gap:.7rem;align-items:start;padding:.7rem 0;border-bottom:1px solid var(--line-dark);font-size:1rem;color:var(--ink-soft);}
-.itens li:first-child{border-top:1px solid var(--line-dark);}
+@media(max-width:820px){.mosaico{grid-template-columns:1fr 1fr;}.pacote__grid{grid-template-columns:1fr;}.itens{columns:1;}}
+.itens{list-style:none;columns:2;column-gap:clamp(1.6rem,3.5vw,2.8rem);border-top:1px solid var(--line-dark);}
+.sec--dark .itens{border-color:var(--line-light);}
+.itens li{display:grid;grid-template-columns:1.4rem 1fr;gap:.7rem;align-items:start;padding:.7rem 0;border-bottom:1px solid var(--line-dark);font-size:1rem;color:var(--ink-soft);break-inside:avoid;}
 .sec--dark .itens li{border-color:var(--line-light);color:rgba(240,232,220,.85);}
 .itens svg{width:16px;height:16px;color:var(--accent);margin-top:4px;}
 .nota{margin-top:1.6rem;padding:1rem 1.2rem;border-left:2px solid var(--accent);background:rgba(192,138,87,.08);font-size:.86rem;line-height:1.7;color:var(--ink-soft);}
@@ -479,20 +481,20 @@ var CAP={'jantar-mesa':'Mesa posta','jantar-ambiente':'Ambiente do jantar','jant
 
 var PAC=[
  {id:'intima',nome:'Íntima',n:'01',momento:'Jantar',conv:'até 30 convidados',selo:'',dark:false,band:false,
-  desc:'Uma mesa impecável e um clima acolhedor de jantar, com pontos de brilho e um cenário de foto que encanta. Elegante e completa, sem pesar.',
+  desc:'A primeira grande celebração da conquista: um jantar acolhedor, à luz de velas, em que a família inteira sente que cada esforço valeu a pena.',
   chamada:'O jantar que a família nunca esquece',
   fotos:['jantar-mesa','jantar-ambiente','jantar-principal'],
   itens:['Mesa espelhada da família + cadeiras Medalhão','Mesa de doces completa (demolição, suportes e tapete)','Floral incluso — floreiras, vasos e arranjos','Cortina de Led e luzes cênicas','Cenário instagramável #FORMEI'] },
  {id:'celebracao',nome:'Celebração',n:'02',momento:'Jantar + Festa',conv:'até 50 convidados',selo:'O mais escolhido',dark:false,band:false,
-  desc:'Toda a base do jantar, agora com o segundo momento: a festa. Neon com o nome da turma, lounge, plataforma 360 e a pista que não para.',
+  desc:'O jantar que emociona encontra a festa que ninguém quer ver acabar — do brinde em família à pista cheia, do primeiro abraço à última música.',
   chamada:'Quando o jantar vira festa',
   fotos:['neon-painel','lounge','plataforma-festa'],
-  itens:['Tudo da Íntima','Painel de fotos com neon personalizado da turma','Lounge assinado — sofás e mesas bistrô','Cabine / Plataforma 360','Balões dourados pelo salão'] },
+  itens:['Mesa espelhada da família + cadeiras Medalhão','Mesa de doces completa (demolição, suportes e tapete)','Floral incluso — floreiras, vasos e arranjos','Cortina de Led e luzes cênicas','Cenário instagramável #FORMEI','Painel de fotos com neon personalizado da turma','Lounge assinado — sofás e mesas bistrô','Cabine / Plataforma 360','Balões dourados pelo salão'] },
  {id:'premium',nome:'Premium',n:'03',momento:'Festa completa',conv:'até 80 convidados',selo:'Recomendado',dark:true,band:false,
-  desc:'Tudo da Celebração, levado ao ápice. Totens de Led na recepção, arco de entrada, sofá com Árvore Francesa e o formando recebido como convidado de honra.',
+  desc:'A sua formatura vivida em grande estilo, do primeiro brinde à última música: a noite em que você é recebido e celebrado como protagonista de tudo.',
   chamada:'O formando recebido como estrela da noite',
   fotos:['totem-led','arvore-francesa','jardim-suspenso'],
-  itens:['Tudo da Celebração','Totens de Led — o formando recebido na entrada','Sofá com Árvore Francesa','Jardim suspenso + arco de recepção','Velas decorativas e vela sparkle'] },
+  itens:['Mesa espelhada da família + cadeiras Medalhão','Mesa de doces completa (demolição, suportes e tapete)','Floral incluso — floreiras, vasos e arranjos','Cortina de Led e luzes cênicas','Cenário instagramável #FORMEI','Painel de fotos com neon personalizado da turma','Lounge assinado — sofás e mesas bistrô','Cabine / Plataforma 360','Balões dourados pelo salão','Totens de Led — o formando recebido na entrada','Sofá com Árvore Francesa','Jardim suspenso + arco de recepção','Velas decorativas e vela sparkle'] },
 ];
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
