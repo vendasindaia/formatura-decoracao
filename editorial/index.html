@@ -573,7 +573,6 @@ var DET=[
  {g:'luz',nv:'premium',n:'Arco decorado de recepção',q:'1 un'},
  {g:'luz',nv:'premium',n:'Corredor de luzes',q:'1 un'},
  {g:'luz',nv:'premium',n:'Velas decorativas',q:'40 un'},
- {g:'luz',nv:'premium',n:'Vela Sparkle',q:'40 un'},
  {g:'doces',nv:'premium',n:'Jardim de Led na mesa de doces',q:'1 un'}
 ];
 function detalhe(niveis){return '<div class="detalhe reveal">'+GRUPOS.map(function(gr){
@@ -608,14 +607,14 @@ document.getElementById('pacotes').innerHTML=html;
 
 /* comparativo */
 var COMP={cols:[{k:'intima',nome:'Íntima',tag:'Jantar'},{k:'celebracao',nome:'Celebração',tag:'O mais escolhido',hl:true},{k:'premium',nome:'Premium',tag:'Recomendado'}],
- linhas:[['Convidados','até 30','até 50','até 80'],['Mesa da família',1,1,1],['Mesa espelhada',1,1,1],['Floral incluso',1,1,1],['Cortina de Led e luzes',1,1,1],['Cenário #FORMEI',1,1,1],['Lounge assinado',0,1,1],['Plataforma 360 e balões',0,1,1],['Totens de Led',0,0,1],['Árvore Francesa',0,0,1],['Jardim suspenso',0,0,1],['Vela sparkle',0,0,1]]};
+ linhas:[['Convidados','até 30','até 50','até 80'],['Mesa da família',1,1,1],['Mesa espelhada',1,1,1],['Floral incluso',1,1,1],['Cortina de Led e luzes',1,1,1],['Cenário #FORMEI',1,1,1],['Lounge assinado',0,1,1],['Plataforma 360 e balões',0,1,1],['Totens de Led',0,0,1],['Árvore Francesa',0,0,1],['Jardim suspenso',0,0,1]]};
 function cel(v,hl){var i;if(v===1)i='<span class="sim">✓</span>';else if(v===0)i='<span class="nao">—</span>';else i='<span class="qt">'+esc(v)+'</span>';return '<td'+(hl?' class="hl"':'')+'>'+i+'</td>';}
 var thead='<tr><th></th>'+COMP.cols.map(function(c){return '<th'+(c.hl?' class="hl"':'')+'><span class="comp__cod">'+c.nome+'</span><span class="comp__nome">'+c.tag+'</span></th>';}).join('')+'</tr>';
 var tbody=COMP.linhas.map(function(l){return '<tr><td>'+l[0]+'</td>'+cel(l[1],false)+cel(l[2],true)+cel(l[3],false)+'</tr>';}).join('');
 document.getElementById('comp').innerHTML='<thead>'+thead+'</thead><tbody>'+tbody+'</tbody>';
 
 /* ambientes */
-var AMB=['cenario-formei','recepcao-luzes','velas-sparkle','mesa-doces','neon-painel','totem-led','lounge','arvore-francesa'];
+var AMB=['cenario-formei','recepcao-luzes','cortina-led','mesa-doces','neon-painel','totem-led','lounge','arvore-francesa'];
 document.getElementById('ambGrid').innerHTML=AMB.map(figura).join('');
 
 /* interações leves (sem libs) */
