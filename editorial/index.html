@@ -525,7 +525,7 @@ a{color:inherit;}
 
 var IMG='../assets/img/items/';
 var CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg>';
-var CAP={'jantar-mesa':'Mesa posta','jantar-ambiente':'Ambiente do jantar','jantar-principal':'Mesa principal','mesa-familia':'Mesa da família','mesa-doces':'Mesa espelhada','cortina-led':'Cortina de Led','cenario-formei':'#FORMEI','neon-painel':'Neon do curso','lounge':'Lounge','plataforma-festa':'Plataforma 360','totem-led':'Totens de Led','arvore-francesa':'Árvore Francesa','jardim-suspenso':'Jardim suspenso','velas-sparkle':'Vela sparkle','recepcao-luzes':'Recepção'};
+var CAP={'jantar-mesa':'Mesa posta','jantar-ambiente':'Ambiente do jantar','jantar-principal':'Mesa principal','mesa-familia':'Mesa da família','mesa-doces':'Mesa espelhada','cortina-led':'Cortina de Led','cenario-formei':'#FORMEI','neon-painel':'Let\'s Celebrate','lounge':'Lounge','plataforma-festa':'Plataforma 360','totem-led':'Totens de Led','arvore-francesa':'Árvore Francesa','jardim-suspenso':'Jardim suspenso','velas-sparkle':'Vela sparkle','recepcao-luzes':'Recepção'};
 
 var PAC=[
  {id:'intima',nome:'Íntima',n:'01',momento:'Jantar',conv:'até 30 convidados',selo:'',dark:false,band:false,
@@ -562,7 +562,6 @@ var DET=[
  {g:'luz',nv:'intima',n:'Cortina de Led',q:'1 un'},
  {g:'luz',nv:'intima',n:'Luzes cênicas',q:'10 un'},
  {g:'cenario',nv:'intima',n:'Cenário instagramável "Let\'s Celebrate"',q:'1 un'},
- {g:'cenario',nv:'celebracao',n:'Painel de fotos com neon do nome do curso',q:'1 un'},
  {g:'cenario',nv:'celebracao',n:'Cabine ou Plataforma 360',q:'1 un'},
  {g:'festa',nv:'celebracao',n:'Sofás do lounge',q:'2 un'},
  {g:'festa',nv:'celebracao',n:'Centro de mesa do lounge',q:'1 un'},
@@ -609,7 +608,7 @@ document.getElementById('pacotes').innerHTML=html;
 
 /* comparativo */
 var COMP={cols:[{k:'intima',nome:'Íntima',tag:'Jantar'},{k:'celebracao',nome:'Celebração',tag:'O mais escolhido',hl:true},{k:'premium',nome:'Premium',tag:'Recomendado'}],
- linhas:[['Convidados','até 30','até 50','até 80'],['Mesa da família',1,1,1],['Mesa espelhada',1,1,1],['Floral incluso',1,1,1],['Cortina de Led e luzes',1,1,1],['Cenário #FORMEI',1,1,1],['Neon do curso',0,1,1],['Lounge assinado',0,1,1],['Plataforma 360 e balões',0,1,1],['Totens de Led',0,0,1],['Árvore Francesa',0,0,1],['Jardim suspenso',0,0,1],['Vela sparkle',0,0,1]]};
+ linhas:[['Convidados','até 30','até 50','até 80'],['Mesa da família',1,1,1],['Mesa espelhada',1,1,1],['Floral incluso',1,1,1],['Cortina de Led e luzes',1,1,1],['Cenário #FORMEI',1,1,1],['Lounge assinado',0,1,1],['Plataforma 360 e balões',0,1,1],['Totens de Led',0,0,1],['Árvore Francesa',0,0,1],['Jardim suspenso',0,0,1],['Vela sparkle',0,0,1]]};
 function cel(v,hl){var i;if(v===1)i='<span class="sim">✓</span>';else if(v===0)i='<span class="nao">—</span>';else i='<span class="qt">'+esc(v)+'</span>';return '<td'+(hl?' class="hl"':'')+'>'+i+'</td>';}
 var thead='<tr><th></th>'+COMP.cols.map(function(c){return '<th'+(c.hl?' class="hl"':'')+'><span class="comp__cod">'+c.nome+'</span><span class="comp__nome">'+c.tag+'</span></th>';}).join('')+'</tr>';
 var tbody=COMP.linhas.map(function(l){return '<tr><td>'+l[0]+'</td>'+cel(l[1],false)+cel(l[2],true)+cel(l[3],false)+'</tr>';}).join('');
