@@ -546,7 +546,7 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function figura(f){return '<figure class="frame reveal"><img class="frame__img" loading="lazy" src="'+(window.IMGMAP[f]||'')+'" alt=""><figcaption class="frame__cap">'+(CAP[f]||f)+'</figcaption></figure>';}
 
 /* DETALHAMENTO agrupado com quantidades — conforme o pacote decorativo (cumulativo por nível) */
-var GRUPOS=[{c:'mesa',t:'Mesa e jantar da família'},{c:'floral',t:'Arranjos e estrutura floral'},{c:'doces',t:'Mesa de doces'},{c:'luz',t:'Iluminação e clima'},{c:'cenario',t:'Cenário e fotos'},{c:'festa',t:'Lounge e ambientação'}];
+var GRUPOS=[{c:'mesa',t:'Mesa e jantar da família'},{c:'floral',t:'Arranjos e estrutura floral'},{c:'doces',t:'Mesa de doces'},{c:'luz',t:'Iluminação e clima'},{c:'cenario',t:'Cenário e fotos'},{c:'festa',t:'Lounge e ambientação'},{c:'producao',t:'Palco, som e luz'}];
 var DET=[
  {g:'mesa',nv:'intima',n:'Mesa espelhada para o jantar da família',q:'1 un'},
  {g:'mesa',nv:'intima',n:'Cadeiras Medalhão',q:'6 un'},
@@ -573,7 +573,10 @@ var DET=[
  {g:'luz',nv:'premium',n:'Arco decorado de recepção',q:'1 un'},
  {g:'luz',nv:'premium',n:'Corredor de luzes',q:'1 un'},
  {g:'luz',nv:'premium',n:'Velas decorativas',q:'40 un'},
- {g:'doces',nv:'premium',n:'Jardim de Led na mesa de doces',q:'1 un'}
+ {g:'doces',nv:'premium',n:'Jardim de Led na mesa de doces',q:'1 un'},
+ {g:'producao',nv:'celebracao',n:'DJ durante a festa',q:'incluso'},
+ {g:'producao',nv:'premium',n:'Estrutura de treliça Q20 para som e luz',q:'incluso'},
+ {g:'producao',nv:'premium',n:'Telão de LED — fundo de palco e testeira',q:'incluso'}
 ];
 function detalhe(niveis){return '<div class="detalhe reveal">'+GRUPOS.map(function(gr){
   var its=DET.filter(function(it){return it.g===gr.c && niveis.indexOf(it.nv)>=0;});
